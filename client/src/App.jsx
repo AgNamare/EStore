@@ -3,7 +3,6 @@ import Signup from './pages/Signup';
 import Layout from './components/Layout';
 
 function App() {
-
   return (
     <BrowserRouter>
       <Layout>
