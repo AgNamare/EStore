@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.routes.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -10,6 +11,12 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json())
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true
+}
+app.use(cors(corsOptions));
 
 dotenv.config();
 
