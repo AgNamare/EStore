@@ -11,7 +11,9 @@ module.exports = {
     extend: {
       colors: {
         "text-white": "#FAFAFA",
-        "secondaryFade": "#F5F5F5"
+        "secondaryFade": "#F5F5F5",
+        "primary": "#DB4444",
+        "primaryHover": "#FF6B6B"
       }
     },
   },

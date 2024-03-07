@@ -3,11 +3,11 @@ import SearchBar from "./SearchBar";
 
 function Header() {
   return (
-    <div>
+    <div className="fixed top-0 left-0 w-[100%]">
       <div className="bg-black h-10 flex items-center justify-center">
         <p className="capitalize text-text-white">summer sale for all swim suits and free express delivery - OFF 50%</p>
       </div>
-      <div className="flex items-center justify-around w-full pt-8 pb-5 border-b border-gray border-1">
+      <div className=" flex items-center justify-around w-full pt-8 pb-5 border-b border-gray border-1">
         <p className="font-bold text-[24px]">Exclusive</p>
         <ul className="flex items-center gap-6">
           <li className="cursor-pointer">Home</li>
