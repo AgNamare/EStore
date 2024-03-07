@@ -13,7 +13,7 @@ function Header() {
           <li className="cursor-pointer">Home</li>
           <li className="cursor-pointer">Contact</li>
           <li className="cursor-pointer">About</li>
-          <li className="cursor-pointer">Sign Up</li>
+          <Link to="/sign-up"><li className="cursor-pointer">Sign Up</li></Link>
         </ul>
         <SearchBar/>
       </div>
