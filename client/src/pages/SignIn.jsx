@@ -2,6 +2,8 @@ import { useState } from "react";
 import SignupPic from "../assets/SignupPic.png";
 import OAuth from "../components/OAuth";
 import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signInFailure, signInStart, signInSuccess } from "../../redux/user/userSlice";
 
 function SignIn() {
   const [signUpData, setSignUpData] = useState({
@@ -9,8 +11,9 @@ function SignIn() {
     password:""
   });
 
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const {loading, error} = useSelector((state=>state.user))
+
+  const dispatch = useDispatch();
 
   const handleChange = (e)=>{
     const {name, value} = e.target;
@@ -22,8 +25,8 @@ function SignIn() {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    setLoading(true)
     try {
+      dispatch(signInStart())
       const res = await fetch("http://localhost:5000/api/auth/signIn",{
         method: "POST",
         headers: {
@@ -33,15 +36,12 @@ function SignIn() {
       });
       const data = await res.json();
       if (data.success === false) {
-        setLoading(false);
-        setError(data.message);
+        dispatch(signInFailure(data.message))
         return;
       }
-      setLoading(false);
-      setError(null);
+      signInSuccess(data)
     } catch (error) {
-      setLoading(false);
-      setError(error.message)
+      dispatch(signInFailure(error.message));
     }
   }
   return (
