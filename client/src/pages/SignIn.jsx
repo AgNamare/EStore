@@ -27,7 +27,7 @@ function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart())
-      const res = await fetch("http://localhost:5000/api/auth/signIn",{
+      const res = await fetch("/api/auth/signIn",{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
